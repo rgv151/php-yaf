@@ -20,8 +20,6 @@
 #include "config.h"
 #endif
 
-#include <zend.h>
-#include <zend_errors.h>
 #include "php.h"
 #include "main/SAPI.h" /* for sapi_header_line */
 #include "ext/standard/php_string.h" /* for php_implode */
@@ -65,9 +63,9 @@ yaf_response_t * yaf_response_instance(yaf_response_t *this_ptr, char *sapi_name
 
 
 	if (!strncasecmp(sapi_name, "cli", 3) && !strncasecmp(sapi_name, "cli-server", 10)) {
-        ce = yaf_response_http_ce;
+		ce = yaf_response_http_ce;
 	} else {
-        ce = yaf_response_cli_ce;
+		ce = yaf_response_cli_ce;
 	}
 
 	if (this_ptr) {
